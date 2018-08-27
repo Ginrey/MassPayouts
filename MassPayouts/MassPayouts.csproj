@@ -32,8 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,11 +51,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Sql\Contractors.cs" />
+    <Compile Include="Data\Sql\DatabaseContext.cs" />
+    <Compile Include="Model\Sql\Transactions.cs" />
+    <Compile Include="Model\Sql\TypeOfContractor.cs" />
+    <Compile Include="Model\Sql\TypeOfTransaction.cs" />
+    <Compile Include="Model\Sql\TypeOfWallet.cs" />
+    <Compile Include="Model\Sql\Wallets.cs" />
+    <Compile Include="Net\BaseActions\ActionEventArgs.cs" />
+    <Compile Include="Net\BaseActions\ActionEventHandler.cs" />
+    <Compile Include="Net\BaseActions\ActionHandler.cs" />
+    <Compile Include="Net\BaseActions\ActionIdentifier.cs" />
+    <Compile Include="Net\BaseActions\ActionRegistry.cs" />
+    <Compile Include="Net\BaseActions\Actions\OnNullBalance.cs" />
+    <Compile Include="Net\BaseActions\Actions\OnShowOwnerName.cs" />
+    <Compile Include="Net\BaseActions\Actions\OnBonusAction.cs" />
+    <Compile Include="Net\BaseActions\ActionType.cs" />
+    <Compile Include="Net\BaseActions\DataExecuter.cs" />
+    <Compile Include="Net\BaseActions\IAction.cs" />
+    <Compile Include="Net\BaseActions\ActionGroup.cs" />
+    <Compile Include="Net\Plugin.cs" />
+    <Compile Include="Net\PluginManager.cs" />
+    <Compile Include="Net\Plugins\BonusPlugin.cs" />
+    <Compile Include="Net\Plugins\CommissionPlugin.cs" />
+    <Compile Include="Net\Requisites\BankAccount.cs" />
+    <Compile Include="Net\Requisites\Card.cs" />
+    <Compile Include="Net\IRequisites.cs" />
+    <Compile Include="Net\Requisites\OnlineWallet.cs" />
+    <Compile Include="Net\Requisites\OnlineWallets\Qiwi.cs" />
+    <Compile Include="Net\Requisites\OnlineWallets\Wallet.cs" />
+    <Compile Include="Net\Requisites\OnlineWallets\YandexMoney.cs" />
+    <Compile Include="Net\TransfersHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Session.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
